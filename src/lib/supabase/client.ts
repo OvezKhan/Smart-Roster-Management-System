@@ -13,6 +13,14 @@ export const isSupabaseConfigured = Boolean(
   !supabaseUrl.includes('your-project-id')
 );
 
-export const supabase = isSupabaseConfigured 
-  ? createClient(supabaseUrl, supabaseAnonKey) 
-  : null;
+let client = null;
+if (isSupabaseConfigured) {
+  try {
+    client = createClient(supabaseUrl, supabaseAnonKey);
+  } catch (err) {
+    console.warn('Supabase initialization deferred/skipped:', err);
+    client = null;
+  }
+}
+
+export const supabase = client;
