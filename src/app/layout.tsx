@@ -1,5 +1,4 @@
 import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
 import './globals.css';
 import Link from 'next/link';
 import {
@@ -14,8 +13,6 @@ import {
 } from 'lucide-react';
 import { isSupabaseConfigured } from '@/lib/supabase/client';
 
-const inter = Inter({ subsets: ['latin'] });
-
 export const metadata: Metadata = {
   title: 'Datastraw | Smart Roster Management System',
   description: 'AI-assisted, deterministic roster management system across D2C brands, processes, and pods.',
@@ -28,7 +25,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${inter.className} bg-slate-50 text-slate-900 min-h-screen flex antialiased`}>
+      <body className="font-sans bg-slate-50 text-slate-900 min-h-screen flex antialiased">
         {/* Sidebar Navigation */}
         <aside className="w-64 bg-slate-900 text-slate-300 flex flex-col fixed inset-y-0 z-40 border-r border-slate-800">
           {/* Logo Header */}
